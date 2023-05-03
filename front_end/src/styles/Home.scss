@@ -1,0 +1,26 @@
+#Develpor{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    .carousel{
+        .demo{
+            background-color: black;
+        }
+    }
+    .DevCard{
+       // justify-items: center;
+        display: "flex";
+        border-radius: "50%";
+        z-index: 1; 
+        flex-Direction: "column";
+        //justify-Content: "center";
+        align-content: center;
+        height: 100%;
+        &:hover{
+            background-color: black;
+            color: white;
+            scale: 1.0;
+            translate: 0px -20px ;
+        }
+    }
+     
+}
