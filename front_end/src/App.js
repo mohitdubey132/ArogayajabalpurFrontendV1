@@ -6,12 +6,14 @@ import { Footer } from "./components/Layouts/Footer";
 import { NavigationBar } from "./components/Layouts/NavigationBar";
 import Error from "./pages/Error";
 import DoctorSigin from "./pages/DoctorSigin";
+import {ContextProvider} from './context';
 
 
 function App() {
   return (<div id="Homepage">
+  
+    <ContextProvider>
     <NavigationBar />
-
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/signin" element={<Signin />} />
@@ -28,6 +30,7 @@ function App() {
 
     </Routes>
     <Footer />
+    </ContextProvider>
   </div>
   );
 }

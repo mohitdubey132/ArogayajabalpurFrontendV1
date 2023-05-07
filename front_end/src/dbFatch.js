@@ -1,7 +1,7 @@
 /**create(POST) API  */
 export async function Fetch(path, data) {
     try {
-        const endpoint = "http://localhost:4000";
+        const endpoint = "http://localhost:8080";
         const response = await fetch(endpoint.concat(path), {
             method: "POST",
             headers: {
@@ -27,7 +27,7 @@ export async function Fetch(path, data) {
 /**GET API  */
 export async function Get(query) {
     try {
-        const endpoint = 'http://localhost:4000' + query;
+        const endpoint = 'http://localhost:8080' + query;
         const response = await fetch(endpoint + query);
         const body = await response.text();
         const result = JSON.parse(body);
@@ -44,7 +44,7 @@ export async function Get(query) {
 /**UPDATE(PUT) API USE    */
 export async function Update(path,data){
     try{
-             const endpoint = 'http://localhost:4000';
+             const endpoint = 'http://localhost:8080';
              const response = await fetch(endpoint.concat(path),{
                 method:'PUT',
                 headers: {
@@ -71,7 +71,7 @@ export async function Update(path,data){
 /**DELETE API  */
 export async function Delete(path,data){
     try{
-             const endpoint = 'http://localhost:4000';
+             const endpoint = 'http://localhost:8080';
              const response = await fetch(endpoint.concat(path),{
                 method:'DELETE',
                 headers: {

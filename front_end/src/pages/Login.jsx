@@ -39,7 +39,7 @@ const Login = () => {
     if (response.success=== true) {
       console.log(response)
       localStorage.setItem('token', response.token);
-      localStorage.setItem('user', response.user)
+      localStorage.setItem('user',JSON.stringify(response.user) );
       toast.success(`loging successfully ${response.user.name}}`, { position: 'top-right', theme: 'colored' });
     }
     if(response.error){

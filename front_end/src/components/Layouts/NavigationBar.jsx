@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import Logo from '../../assets/arogya-jabalpur-high-resolution-logo-color-on-transparent-background.png';
-import Cart from "../Cart";
+import {useApplicationContext} from '../../context'
 export const NavigationBar = () => {
+    const {openCart} = useApplicationContext();
     return (
         <nav style={{ display: 'flex', width: "100dvw", justifyContent: "space-between",overflow:"hidden", paddingRight: "1rem" ,zIndex:"200",top:"0",position:"fixed",width:"100%" }}>
             <div style={{ display: "flex", justifyContent: 'center', textAlign: 'left', width: "20%" }}>
@@ -20,7 +21,7 @@ export const NavigationBar = () => {
                 </div>
                 <div style={{ paddingTop: "1.5rem", paddingRight: "1rem" }}>
                     <Button
-                        // onClick={openCart}
+                          onClick={openCart}
                         style={{ width: "3rem", height: "3rem", position: "relative" }}
                         variant="outline-primary"
                         className="rounded-circle"

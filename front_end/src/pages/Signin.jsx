@@ -7,14 +7,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import React, { useRef, useState } from 'react';
 //import { CloudinaryContext, Image, Transformation } from 'cloudinary-react';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Signin = () => {
   const [imageUrl, setImageUrl] = useState('');
   const fileToUploadRef = useRef(null);
   const navigate = useNavigate();
-  const navigateBack = ()=>{
-   setTimeout(()=>{navigate(-1);},5000)
+  const navigateBack = () => {
+    setTimeout(() => { navigate(-1); }, 5000)
   }
   const formik = useFormik({
     initialValues: {
@@ -25,12 +25,12 @@ const Signin = () => {
       address: "",
       bloodGroup: "",
       avtar: {
+        public_id: "sample_Id",
+        url: "sample_URL"
+      },
+      images: {
         public_id: "",
         url: ""
-      },
-      images:{
-        public_id:"",
-        url :""
       }
     },
     validationSchema: new Yup.ObjectSchema({
@@ -44,7 +44,7 @@ const Signin = () => {
     // onSubmit: async(values) => {
     //   console.log(values);
     // },
-    onSubmit: async(values) => {
+    onSubmit: async (values) => {
       console.log("hi there i am working");
       /**upload image 
        * if success full set value of avtar 
@@ -52,11 +52,14 @@ const Signin = () => {
        */
       const uploadedImage = await handleImageUpload();
       if (uploadedImage) {
-        values.images.url = uploadedImage.secure_url;
-        values.images.public_id = uploadedImage.public_id;
+        values.avtar.url = uploadedImage.secure_url;
+        values.avtar.public_id = uploadedImage.public_id;
       }
+      // else {
+      //   return
+      // }
 
-      
+
       console.log(values.initialValues);
       signUpAPI(values);
     }
@@ -65,15 +68,15 @@ const Signin = () => {
   });
   async function signUpAPI(data) {
     const path = '/api/v1/register';
-    delete data.initialValues;
+    //delete data.initialValues;
     console.log(data.data)
     const response = await Fetch(path, data);
     if (response.success) {
       console.log(response)
       localStorage.setItem('token', response.token);
-      localStorage.setItem('user', response.user)
+      localStorage.setItem('user', JSON.stringify(response.user));
       toast.success('Registed successfully', { position: 'top-right', theme: 'colored' });
-      navigateBack();   
+      navigateBack();
     }
     else {
       console.log('error');
@@ -122,7 +125,7 @@ const Signin = () => {
     }
   };
   return (
-    <div style={{ display: "flex",marginTop:"5.5rem", alignContent: "center", justifyContent: "center", backgroundColor: "", width: "100%" }}>
+    <div style={{ display: "flex", marginTop: "5.5rem", alignContent: "center", justifyContent: "center", backgroundColor: "", width: "100%" }}>
       <form onSubmit={formik.handleSubmit} style={{ display: "flex", margin: "2rem", backgroundColor: "white", flexDirection: "column", alignItems: 'baseline', justifyContent: "center", width: "60%", padding: "2rem", border: "1px solid #E0E0E0", borderRadius: "4px" }}>
         <div style={{ width: "100%", display: "flex", justifyContent: "space-between", flexDirection: "row", flexWrap: 'wrap' }}>
           <div style={{ flex: 1, marginRight: "1rem" }}>
