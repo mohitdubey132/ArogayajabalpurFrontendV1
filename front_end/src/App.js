@@ -7,6 +7,7 @@ import { NavigationBar } from "./components/Layouts/NavigationBar";
 import Error from "./pages/Error";
 import DoctorSigin from "./pages/DoctorSigin";
 import {ContextProvider} from './context';
+import {DoctorsWindow} from './pages/DoctorsWindow';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Route path="/signin" element={<Signin />} />
       <Route path="/Login" element={<Login />} />
       <Route path="/doctorSigin" element={<DoctorSigin/>} />
+      <Route path='/doctors' element={<DoctorsWindow/>}/>
       <Route path="*" element={<Error />} />
       {/* // <Route path='/user' >
       //   <Route index element={<User />}/>

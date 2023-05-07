@@ -12,7 +12,7 @@ const Cart = ({isOpen}) => {
           <Offcanvas.Title style={{fontSize:"2rem",color:"red"}}>My Cart </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-         {/* jkffdkj if a f ka. */}
+         
         </Offcanvas.Body>
       </Offcanvas>
     </>

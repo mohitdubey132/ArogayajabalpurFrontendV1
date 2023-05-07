@@ -5,6 +5,8 @@ import { Button } from 'react-bootstrap';
 import {Link ,useNavigate} from 'react-router-dom';
 import {toast,ToastContainer} from 'react-toastify';
 import { Fetch } from '../dbFatch';
+
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const Login = () => {
   const  navigator = useNavigate();
   const navigateBack = ()=>{
@@ -53,8 +55,10 @@ const Login = () => {
   };
   return (
     <div style={{ display: "flex",marginTop:"5rem", alignContent: "center", justifyContent: "center", backgroundColor: "", width: "100%" }}>
+     
       <form onSubmit={formik.handleSubmit} style={{ display: "flex",padding:"5px", margin: "2rem", backgroundColor: "white", flexDirection: "column", alignItems: 'baseline', justifyContent: "center",boxShadow: "0px 0px 5px rgba(0, 0, 0, 1)",borderRadius:"15px"}}>
         <div style={{ width: "100%", display: "flex", justifyContent: "space-between", flexDirection: "column", }}>
+<div style={{width:"100%",alignContent:"center"}}><center>< AccountCircleIcon style={{height:"60px" ,width:"60px",color:"blue"}}/></center></div>
       <div>    <label for='Email' >EMAIL</label>
           <input name='email'
             type='email'
@@ -82,6 +86,7 @@ const Login = () => {
         <h6>
         For New users<Link to={'/signin'}><u>Sign UP</u></Link> from here.
         </h6>
+        
       </form>
       {/* {<div>
         {formik.values.name}

@@ -1,4 +1,5 @@
 import React from 'react';
+import {useNavigate} from 'react-router-dom';
 //import img from '../assets/arogya-jabalpur-high-resolution-logo-color-on-transparent-background.png';
 import img1 from '../assets/dweb_instant_video_consulation.png';
 import img2 from '../assets/dweb_surgeries.png';
@@ -12,6 +13,7 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Button } from 'react-bootstrap';
 const Home = () => {
+ const  navigator = useNavigate(); 
   return (
     <div style={{ width: "100%", height: "100%", alignItems: "center", paddingTop: "2rem" }}>
       <section className='carousel' style={{ marginTop: "3rem" }}>
@@ -34,7 +36,7 @@ const Home = () => {
               <h3>
                 connect within 60 sec
               </h3>
-              <Button variant="outline-success" onClick={() => { navigator('/') }} >Consult Now</Button>
+              <Button variant="outline-success" onClick={() => { navigator('/doctors') }} >Consult Now</Button>
             </aside>
           </div>
           <div style={{ display: "flex", justifyContent: "center", backgroundColor: "white", flexWrap: "wrap", flexDirection: "row",backgroundColor:"black",color:"white" }}>
