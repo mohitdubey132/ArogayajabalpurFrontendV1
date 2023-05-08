@@ -56,9 +56,13 @@ const Login = () => {
   return (
     <div style={{ display: "flex",marginTop:"5rem", alignContent: "center", justifyContent: "center", backgroundColor: "", width: "100%" }}>
      
-      <form onSubmit={formik.handleSubmit} style={{ display: "flex",padding:"5px", margin: "2rem", backgroundColor: "white", flexDirection: "column", alignItems: 'baseline', justifyContent: "center",boxShadow: "0px 0px 5px rgba(0, 0, 0, 1)",borderRadius:"15px"}}>
+      <form onSubmit={formik.handleSubmit} style={{ display: "flex",padding:"5px",marginBottom:"3rem", marginTop: "6rem", backgroundColor: "white", flexDirection: "column", alignItems: 'baseline', justifyContent: "center",boxShadow: "0px 0px 5px rgba(0, 0, 0, 1)",borderRadius:"15px"}}>
         <div style={{ width: "100%", display: "flex", justifyContent: "space-between", flexDirection: "column", }}>
-<div style={{width:"100%",alignContent:"center"}}><center>< AccountCircleIcon style={{height:"60px" ,width:"60px",color:"blue"}}/></center></div>
+<div style={{width:"100%",alignContent:"center"}}>
+  <center>< AccountCircleIcon style={{height:"60px" ,width:"60px",color:"blue"}}/>
+  <h2>Login</h2> </center>
+  </div>
+     
       <div>    <label for='Email' >EMAIL</label>
           <input name='email'
             type='email'
