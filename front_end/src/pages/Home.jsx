@@ -16,12 +16,12 @@ const Home = () => {
  const  navigator = useNavigate(); 
   return (
     <div style={{ width: "100%", height: "100%", alignItems: "center", paddingTop: "2rem" }}>
-      <section className='carousel' style={{ marginTop: "3rem" }}>
+      <section className='carousel' style={{ marginTop: "5rem" }}>
         <Carousel showArrows={false}
           showIndicators={false}
           showThumbs={false}
           autoPlay={true}
-          interval={2000}
+          interval={4000}
           showStatus={false}
           infiniteLoop={true}
         >
@@ -39,7 +39,7 @@ const Home = () => {
               <Button variant="outline-success" onClick={() => { navigator('/doctors') }} >Consult Now</Button>
             </aside>
           </div>
-          <div style={{ display: "flex", justifyContent: "center", backgroundColor: "white", flexWrap: "wrap", flexDirection: "row",backgroundColor:"black",color:"white" }}>
+          <div style={{ display: "flex", justifyContent: "center", backgroundColor: "white", flexWrap: "wrap", flexDirection: "row" }}>
             <div>
               <img src={img2} alt='image' height={'350px'} width={'300px'} style={{ objectFit: "cover" }} />
             </div>
