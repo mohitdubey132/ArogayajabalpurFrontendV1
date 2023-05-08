@@ -2,25 +2,35 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import Logo from '../../assets/arogya-jabalpur-high-resolution-logo-color-on-transparent-background.png';
+import Logo1 from '../../assets/Screenshot_2023-05-07_172043-removebg-preview.png';
 import { useApplicationContext } from '../../context';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 export const NavigationBar = () => {
     const navigator = useNavigate();
-    const { openCart } = useApplicationContext();
+    const { openCart, user } = useApplicationContext();
     return (
         <nav style={{ display: 'flex', width: "100dvw", justifyContent: "space-between", overflow: "hidden", paddingRight: "1rem", zIndex: "200", top: "0", position: "fixed", width: "100%" }}>
             <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
                 <div style={{ display: "flex", justifyContent: 'center', textAlign: 'left', width: "20%" }}>
-                  <Link to={'/'}>   <img src={Logo} alt="Logo" height={'100px'} width={'120px'} /></Link>
+                    <Link to={'/'}>   <img src={Logo1} alt="Logo" height={'100px'} width={'120px'} /></Link>
 
                 </div>
-                <div style={{ display: "flex"}}>
-                    <div style={{ paddingTop: "1.5rem", alignContent: "end",backgroundColor: 'light pink', width: "70%",alignmentBaseline:"baseline" }}>
+                <div style={{ display: "flex" }}>
+                    {user.name ? ( <div style={{ paddingTop: "1.5rem", alignContent: "end", backgroundColor: 'light pink', width: "70%", alignmentBaseline: "baseline" }}>
                         <div style={{ justifyContent: "space-between", display: "flex" }}>
                             {/* <Button variant="outline-primary" onClick={() => { navigator('/') }} >Home</Button> */}
-                            <Button variant="outline-primary" onClick={() => { navigator('/login') }} style={{border:"0"}}>Login<AccountCircleIcon style={{height:"40px",width:"40px"}}/></Button>
+                           {user.name} 
+                          <img src={user.avtar.url} height={"50px"} width={"50px"} /> 
                         </div>
-                    </div>
+                    </div>)
+                    : ( <div style={{ paddingTop: "1.5rem", alignContent: "end", backgroundColor: 'light pink', width: "70%", alignmentBaseline: "baseline" }}>
+                        <div style={{ justifyContent: "space-between", display: "flex" }}>
+                            {/* <Button variant="outline-primary" onClick={() => { navigator('/') }} >Home</Button> */}
+                            <Button variant="outline-primary" onClick={() => { navigator('/login') }} style={{ border: "0" }}>Login<AccountCircleIcon style={{ height: "40px", width: "40px" }} /></Button>
+                        </div>
+                    </div>)}
+                   
+
                     <div style={{ paddingTop: "1.5rem", paddingRight: "1rem" }}>
                         <Button
                             onClick={openCart}
@@ -60,3 +70,4 @@ export const NavigationBar = () => {
         </nav>
     )
 }
+//rajak@gmail.com   12345

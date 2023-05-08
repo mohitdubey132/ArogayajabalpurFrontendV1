@@ -45,7 +45,9 @@ const Login = () => {
       toast.success(`loging successfully ${response.user.name}}`, { position: 'top-right', theme: 'colored' });
     }
     if(response.error){
-      toast.error('Password or email did not match', { position: 'top-right', theme: 'colored' })
+      toast.error('Password or email did not match', { position: 'top-right', theme: 'colored' });
+      setTimeout(()=>{navigateBack()},
+      3000)
     }
     if(!response)
     {
