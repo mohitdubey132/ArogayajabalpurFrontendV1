@@ -7,7 +7,7 @@ import { useApplicationContext } from '../../context';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 export const NavigationBar = () => {
     const navigator = useNavigate();
-    const { openCart, user } = useApplicationContext();
+    const { openCart, user, openMenu } = useApplicationContext();
     return (
         <nav style={{ display: 'flex', width: "100dvw", justifyContent: "space-between", overflow: "hidden", paddingRight: "1rem", zIndex: "200", top: "0", position: "fixed", width: "100%" }}>
             <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
@@ -16,20 +16,22 @@ export const NavigationBar = () => {
 
                 </div>
                 <div style={{ display: "flex" }}>
-                    {user.name ? ( <div style={{ paddingTop: "1.5rem", alignContent: "end", backgroundColor: 'light pink', width: "70%", alignmentBaseline: "baseline" }}>
-                        <div style={{ justifyContent: "space-between", display: "flex" }}>
+                    {user.name ? (<div style={{ paddingTop: "1.5rem", alignContent: "end", backgroundColor: 'light pink', width: "70%" }}>
+                        <div style={{ justifyContent: "space-between", display: "flex", alignmentBaseline: "baseline" }}>
                             {/* <Button variant="outline-primary" onClick={() => { navigator('/') }} >Home</Button> */}
-                           {user.name} 
-                          <img src={user.avtar.url} height={"50px"} width={"50px"} /> 
+                            <button  style={{border:"0"}} onClick={openMenu}>
+                                <img src={user.avtar.url} height={"50px"} width={"50px"} style={{ borderRadius: "10px" }} />
+                                <div style={{ marginTop: ".5rem" }}>{user.name}</div> 
+                            </button>
                         </div>
                     </div>)
-                    : ( <div style={{ paddingTop: "1.5rem", alignContent: "end", backgroundColor: 'light pink', width: "70%", alignmentBaseline: "baseline" }}>
-                        <div style={{ justifyContent: "space-between", display: "flex" }}>
-                            {/* <Button variant="outline-primary" onClick={() => { navigator('/') }} >Home</Button> */}
-                            <Button variant="outline-primary" onClick={() => { navigator('/login') }} style={{ border: "0" }}>Login<AccountCircleIcon style={{ height: "40px", width: "40px" }} /></Button>
-                        </div>
-                    </div>)}
-                   
+                        : (<div style={{ paddingTop: "1.5rem", alignContent: "end", backgroundColor: 'light pink', width: "70%", alignmentBaseline: "baseline" }}>
+                            <div style={{ justifyContent: "space-between", display: "flex" }}>
+                                {/* <Button variant="outline-primary" onClick={() => { navigator('/') }} >Home</Button> */}
+                                <Button variant="outline-primary" onClick={() => { navigator('/login') }} style={{ border: "0" }}>Login<AccountCircleIcon style={{ height: "40px", width: "40px" }} /></Button>
+                            </div>
+                        </div>)}
+
 
                     <div style={{ paddingTop: "1.5rem", paddingRight: "1rem" }}>
                         <Button

@@ -7,12 +7,12 @@ const Cart = ({isOpen}) => {
   const {closeCart} = useApplicationContext();
   return (
     <>
-      <Offcanvas show={isOpen} onHide={closeCart} placement="end">
+      <Offcanvas show={isOpen} onHide={closeCart} placement="end" style={{width:"300px"}}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title style={{fontSize:"2rem",color:"red"}}>My Cart </Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body>
-         
+        <Offcanvas.Body >
+         dsfasf
         </Offcanvas.Body>
       </Offcanvas>
     </>

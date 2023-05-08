@@ -1,6 +1,7 @@
 import React from 'react';
 import { createContext, useEffect, useState, useRef  ,useContext} from 'react';
 import Cart from './components/Cart'
+import {Menu} from './components/Menu';
 const ApplicationContext = createContext();
 export function useApplicationContext(){
     return useContext(ApplicationContext)
@@ -16,14 +17,13 @@ useEffect(() => {
       if(user1){
         const parsedUser = JSON.parse(user1)
         setUser(parsedUser);
-        alert(user)
       }
     };
-}, [])
+}, []);
 const openCart =()=>setCartIsOpen(true);
 const closeCart =()=> setCartIsOpen(false);
-const openMenu =()=>setCartIsOpen(true);
-const closeMenu =()=> setCartIsOpen(false);
+const openMenu =()=>setMenuIsOpen(true);
+const closeMenu =()=> setMenuIsOpen(false);
 /**return  */
 
 return (
@@ -31,6 +31,7 @@ return (
     >
         {children}
         <Cart isOpen ={cartIsOpen}/>
+        <Menu isOpen={menuIsOpen}/>
     </ApplicationContext.Provider>
 )
 };
