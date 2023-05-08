@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import Logo from '../../assets/arogya-jabalpur-high-resolution-logo-color-on-transparent-background.png';
-import Logo1 from '../../assets/Screenshot_2023-05-07_172043-removebg-preview.png';
+import Logo1 from '../../assets/logov2.png';
 import { useApplicationContext } from '../../context';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 export const NavigationBar = () => {
