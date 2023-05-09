@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import React, { useRef, useState } from 'react';
 //import { CloudinaryContext, Image, Transformation } from 'cloudinary-react';
 import { useNavigate } from 'react-router-dom';
+import doctors from '../assets/doctors.jpeg';
 
 
 const DoctorSigin = () => {
@@ -50,7 +51,7 @@ const DoctorSigin = () => {
       // },
       fees: Yup.string().required('Required')
     }),
-    onSubmit:async (values) => {
+    onSubmit: async (values) => {
       const uploadedImage = await handleImageUpload();
       if (uploadedImage) {
         values.images.url = uploadedImage.secure_url;
@@ -129,10 +130,13 @@ const DoctorSigin = () => {
 
   return (
     <div>DoctorSigin
-      <div style={{ display: "flex",marginTop:"5rem", alignContent: "center", justifyContent: "center", backgroundColor: "", width: "100%" }}>
-        <form onSubmit={formik.handleSubmit} style={{ display: "flex", margin: "2rem", backgroundColor: "white", flexDirection: "column", alignItems: 'baseline', justifyContent: "center", width: "60%", padding: "2rem", border: "1px solid #E0E0E0", borderRadius: "4px" }}>
+      <div style={{ display: "flex", marginTop: "5rem", alignContent: "center", justifyContent: "center", backgroundColor: "", width: "100%" }}>
+        <form onSubmit={formik.handleSubmit} style={{ display: "flex", margin: "2rem", backgroundColor: "white", flexDirection: "column", alignItems: 'baseline', justifyContent: "center", width: "90%", padding: "2rem", border: "1px solid #E0E0E0", borderRadius: "4px" }}>
+          <div style={{display:"flex"}}>  <img src={doctors} height={"55px"} width={"55px"} />
+          <strong> Register as DOCTOR  </strong>
+          </div>
           <div style={{ width: "100%", display: "flex", justifyContent: "space-between", flexDirection: "row", flexWrap: 'wrap' }}>
-            <div style={{ flex: 1, marginRight: "1rem" }}>
+            <div style={{ flex: 1 }}>
               <label htmlFor="name" style={{ fontWeight: "bold" }}>Name</label>
               <input name='name'
                 type='text'
@@ -158,7 +162,7 @@ const DoctorSigin = () => {
             </div>
           </div>
           <div style={{ width: "100%", display: "flex", justifyContent: "space-between", flexWrap: "wrap" }}>
-            <div style={{ flex: 1, marginRight: "1rem" }}>
+            <div style={{ flex: 1 }}>
               <label htmlFor='password' style={{ fontWeight: "bold" }}>Password</label>
               <input name='password'
                 type='password'
@@ -184,7 +188,7 @@ const DoctorSigin = () => {
             </div>
           </div>
           <div style={{ width: "100%", display: "flex", justifyContent: "space-between" }}>
-            <div style={{ flex: 1, marginRight: "1rem" }}>
+            <div style={{ flex: 1}}>
               <label htmlFor='address' style={{ fontWeight: "bold" }}>Address</label>
               <textarea name='address'
                 type='text'
@@ -216,20 +220,20 @@ const DoctorSigin = () => {
             </div>
           </div>
           <div style={{ width: "100%", display: "flex", justifyContent: "flex-end" }}>
-            <div style={{ flex: 1, marginRight: "1rem" }}>
+            <div style={{ flex: 1}}>
               <label htmlFor='image' style={{ fontWeight: "bold" }}>Uploaded You Image</label>
               <input name='image' type="file" ref={fileToUploadRef} />
               {imageUrl ? <img src={imageUrl} height={"30px"} width={"30px"} alt='uploaded' /> : null
               }
             </div>
-            <div style={{ flex: 1, marginRight: "1rem" }}>
+            <div style={{ flex: 1 }}>
               <label htmlFor='fees' style={{ fontWeight: "bold" }}>Fees</label>
               <input name='fees'
                 type='text'
                 placeholder='Enter fees'
                 value={formik.values.fees}
                 onChange={formik.handleChange}
-                style={{ width: "100%", padding: "0.5rem", borderRadius: "4px", border: "1px solid #E0E0E0", marginTop: "0.5rem" }}
+                style={{ width: "100%", padding: ".5rem", borderRadius: "4px", border: "1px solid #E0E0E0", marginTop: "0.5rem" }}
               />{formik.touched.fees && formik.errors.fees ? (
                 <div style={{ color: "Red" }}>{formik.errors.fees}</div>
               ) : null}
@@ -237,7 +241,7 @@ const DoctorSigin = () => {
 
           </div>
           <div style={{ width: "100%", display: "flex", justifyContent: "space-between", flexDirection: "row", flexWrap: 'wrap' }}>
-            <div style={{ flex: 1, marginRight: "1rem" }}>
+            <div style={{ flex: 1 }}>
               <label htmlFor="registerationNumber" style={{ fontWeight: "bold" }}>Registeration Number</label>
               <input name='registerationNumber'
                 type='text'
