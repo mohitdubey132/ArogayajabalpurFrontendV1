@@ -10,7 +10,7 @@ export function ContextProvider({children}){
 const [user,setUser] = useState({});
 const [cartIsOpen,setCartIsOpen] =useState(false);
 const [menuIsOpen, setMenuIsOpen] =useState(false);
-
+const [isLogin,setLogin] = useState(false);
 useEffect(() => {
     return () => {
       const user1 = localStorage.getItem("user");
@@ -20,6 +20,7 @@ useEffect(() => {
       }
     };
 }, []);
+/** handeling login */
 const openCart =()=>setCartIsOpen(true);
 const closeCart =()=> setCartIsOpen(false);
 const openMenu =()=>setMenuIsOpen(true);
@@ -27,7 +28,7 @@ const closeMenu =()=> setMenuIsOpen(false);
 /**return  */
 
 return (
-    <ApplicationContext.Provider value={{openCart,closeCart,openMenu,closeMenu,user}}
+    <ApplicationContext.Provider value={{openCart,closeCart,openMenu,closeMenu,user,setUser}}
     >
         {children}
         <Cart isOpen ={cartIsOpen}/>

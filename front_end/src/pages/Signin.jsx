@@ -8,14 +8,16 @@ import 'react-toastify/dist/ReactToastify.css';
 import React, { useRef, useState } from 'react';
 //import { CloudinaryContext, Image, Transformation } from 'cloudinary-react';
 import { useNavigate } from 'react-router-dom';
+import { useApplicationContext } from '../context'
 
 const Signin = () => {
   const [imageUrl, setImageUrl] = useState('');
   const fileToUploadRef = useRef(null);
   const navigate = useNavigate();
   const navigateBack = () => {
-    setTimeout(() => { navigate(-1); }, 5000)
+    setTimeout(() => { navigate(-2); }, 3000)
   }
+  const { setUser } = useApplicationContext();
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -76,6 +78,7 @@ const Signin = () => {
       localStorage.setItem('token', response.token);
       localStorage.setItem('user', JSON.stringify(response.user));
       toast.success('Registed successfully', { position: 'top-right', theme: 'colored' });
+      setUser(response.user);
       navigateBack();
     }
     else {
@@ -126,9 +129,9 @@ const Signin = () => {
   };
   return (
     <div style={{ display: "flex", marginTop: "5.5rem", alignContent: "center", justifyContent: "center", backgroundColor: "", width: "100%" }}>
-      <form onSubmit={formik.handleSubmit} style={{ display: "flex", margin: "2rem", backgroundColor: "white", flexDirection: "column", alignItems: 'baseline', justifyContent: "center", width: "60%", padding: "2rem", border: "1px solid #E0E0E0", borderRadius: "4px" }}>
+      <form onSubmit={formik.handleSubmit} style={{ display: "flex", marginTop: "2rem", backgroundColor: "white", flexDirection: "column", alignItems: 'baseline', justifyContent: "center", width: "80%", padding: "2rem", border: "1px solid #E0E0E0", borderRadius: "4px" }}>
         <div style={{ width: "100%", display: "flex", justifyContent: "space-between", flexDirection: "row", flexWrap: 'wrap' }}>
-          <div style={{ flex: 1, marginRight: "1rem" }}>
+          <div style={{ flex: 1 }}>
             <label htmlFor="name" style={{ fontWeight: "bold" }}>Name</label>
             <input name='name'
               type='text'
@@ -153,8 +156,8 @@ const Signin = () => {
             ) : null}
           </div>
         </div>
-        <div style={{ width: "100%", display: "flex", justifyContent: "space-between" }}>
-          <div style={{ flex: 1, marginRight: "1rem" }}>
+        <div style={{ width: "100%", display: "flex", justifyContent: "space-between" ,flexWrap:"wrap"}}>
+          <div style={{ flex: 1 }}>
             <label htmlFor='password' style={{ fontWeight: "bold" }}>Password</label>
             <input name='password'
               type='password'
@@ -212,19 +215,23 @@ const Signin = () => {
           </div>
         </div>
         <div style={{ width: "100%", display: "flex", justifyContent: "flex-end" }}>
-          <h1>Upload an Image</h1>
-          <input type="file" ref={fileToUploadRef} />
-          {imageUrl ? <img src={imageUrl} height={"30px"} width={"30px"} alt='uploaded' /> : null
-          }
-
+          <div style={{ flex: 1, marginLeft: "2rem",alignContent:"center" }}>
+            <label htmlFor="Images" style={{ fontWeight: "bold" }}>Upload an Image</label>
+            <input type="file" ref={fileToUploadRef} />
+            {imageUrl ? <img src={imageUrl} height={"50px"} width={"50px"} alt='uploaded' /> : null
+            }
+          </div>
+        </div>
+        <div style={{ flex: 1, marginRight: "1rem" }}>
           <button type='submit' style={{ backgroundColor: "#007BFF", color: "#FFF", padding: "0.5rem 1rem", borderRadius: "4px", border: "none", marginTop: "1rem", cursor: "pointer", }}>
             Submit
           </button>
         </div>
-      </form>
+
+      </form >
 
       <ToastContainer theme='colored' />
-    </div>
+    </div >
   )
 }
 

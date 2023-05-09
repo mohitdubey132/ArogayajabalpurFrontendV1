@@ -12,7 +12,7 @@ export const NavigationBar = () => {
         <nav style={{ display: 'flex', width: "100dvw", justifyContent: "space-between", overflow: "hidden", paddingRight: "1rem", zIndex: "200", top: "0", position: "fixed", width: "100%" }}>
             <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
                 <div style={{ display: "flex", justifyContent: 'center', textAlign: 'left', width: "20%" }}>
-                    <Link to={'/'}>   <img src={Logo1} alt="Logo" height={'100px'} width={'120px'} /></Link>
+                    <Link to={'/'}>   <img src={Logo} alt="Logo" height={'100px'} width={'120px'} /></Link>
 
                 </div>
                 <div style={{ display: "flex" }}>
@@ -20,7 +20,7 @@ export const NavigationBar = () => {
                         <div style={{ justifyContent: "space-between", display: "flex", alignmentBaseline: "baseline" }}>
                             {/* <Button variant="outline-primary" onClick={() => { navigator('/') }} >Home</Button> */}
                             <button  style={{border:"0"}} onClick={openMenu}>
-                                <img src={user.avtar.url} height={"50px"} width={"50px"} style={{ borderRadius: "10px" }} />
+                             {user.avtar ?(<img src={user.avtar.url} height={"50px"} width={"50px"} style={{ borderRadius: "10px" }} />):(<img src={user.images.url} height={"50px"} width={"50px"} style={{ borderRadius: "10px" }} />)}   
                                 <div style={{ marginTop: ".5rem" }}>{user.name}</div> 
                             </button>
                         </div>
