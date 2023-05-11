@@ -289,7 +289,6 @@ const DoctorSigin = () => {
           <button type='submit' style={{ backgroundColor: "#007BFF", color: "#FFF", padding: "0.5rem 1rem", borderRadius: "4px", border: "none", marginTop: "1rem", cursor: "pointer", }}>
             Submit
           </button>
-          {formik.errors.name}
         </form>
 
         <ToastContainer theme='colored' />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useRef} from 'react';
 import {useNavigate} from 'react-router-dom';
 //import img from '../assets/arogya-jabalpur-high-resolution-logo-color-on-transparent-background.png';
 import img1 from '../assets/dweb_instant_video_consulation.png';
@@ -12,8 +12,11 @@ import dev2img from '../assets/WhatsApp Image 2023-04-23 at 12.56.50 AM.jpeg';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Button } from 'react-bootstrap';
+import { useApplicationContext } from '../context';
 const Home = () => {
- const  navigator = useNavigate(); 
+ const  navigator = useNavigate();
+ const searchRef = useRef(''); 
+ const {openFilter} = useApplicationContext();
   return (
     <div style={{ width: "100%", height: "100%", alignItems: "center", paddingTop: "2rem" }}>
       <section className='carousel' style={{ marginTop: "5rem" }}>
@@ -86,6 +89,26 @@ const Home = () => {
 
       </section>
       <hr />
+      <section style={{display:"flex",justifyContent:"center",padding:"3rem",flexDirection:"column"}}>
+         <h2> Buy Medicines</h2> <br/>
+          <div style={{display:"flex",flexDirection:"row",justifyContent:"center"}} >
+           <input type='text' ref={searchRef} value={searchRef.current.values} style={{width:"50%" ,borderRadius: "50px 0px 0px 50px" }} placeholder='search' />
+           <button style={{borderRadius: "0px 50px 50px 0px"}}>Search</button>
+           <div style={{ paddingLeft: "1.5rem", paddingRight: "1rem" }}>
+            <Button
+              onClick={openFilter}
+              style={{ width: "3rem", height: "3rem", position: "relative" }}
+              variant="outline-primary"
+              className="rounded-circle"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="Filter">
+                <path d="M2 7h.142a3.981 3.981 0 0 0 7.716 0H30a1 1 0 0 0 0-2H9.858a3.981 3.981 0 0 0-7.716 0H2a1 1 0 0 0 0 2zm4-3a2 2 0 1 1-2 2 2 2 0 0 1 2-2zm24 11h-.142a3.981 3.981 0 0 0-7.716 0H2a1 1 0 0 0 0 2h20.142a3.981 3.981 0 0 0 7.716 0H30a1 1 0 0 0 0-2zm-4 3a2 2 0 1 1 2-2 2 2 0 0 1-2 2zm4 7H19.858a3.981 3.981 0 0 0-7.716 0H2a1 1 0 0 0 0 2h10.142a3.981 3.981 0 0 0 7.716 0H30a1 1 0 0 0 0-2zm-14 3a2 2 0 1 1 2-2 2 2 0 0 1-2 2z" fill="currentColor" class="color000000 svgShape">
+                </path></svg>
+            </Button>
+          </div>
+          </div>
+           
+      </section>
       <section style={{ display: "flex", justifyContent: "center", padding: '3rem', flexWrap: "wrap", backgroundColor: "lightskyblue" }}>
         <div >
           <img src={img4} alt='why choose as' height={400} width={350} />
