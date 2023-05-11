@@ -91,10 +91,10 @@ const Home = () => {
       <hr />
       <section style={{display:"flex",justifyContent:"center",padding:"3rem",flexDirection:"column"}}>
          <h2> Buy Medicines</h2> <br/>
-          <div style={{display:"flex",flexDirection:"row",justifyContent:"center"}} >
-           <input type='text' ref={searchRef} value={searchRef.current.values} style={{width:"50%" ,borderRadius: "50px 0px 0px 50px" }} placeholder='search' />
+          <div style={{display:"flex",flexDirection:"row",justifyContent:"center",width:"100%"}} >
+           <input type='text' ref={searchRef} value={searchRef.current.values} style={{width:"70%" ,borderRadius: "50px 0px 0px 50px" }} placeholder='search' />
            <button style={{borderRadius: "0px 50px 50px 0px"}}>Search</button>
-           <div style={{ paddingLeft: "1.5rem", paddingRight: "1rem" }}>
+           <div style={{ paddingLeft: "1.5rem", paddingRight: ".5rem" }}>
             <Button
               onClick={openFilter}
               style={{ width: "3rem", height: "3rem", position: "relative" }}
