@@ -10,6 +10,7 @@ export async function Fetch(path, data) {
                 "Content-Type": "application/json",
 
             },
+            //credentials:"include",
             body: JSON.stringify(data),
             
         });
@@ -31,7 +32,11 @@ export async function Get(query) {
     try {
         const endpoint = hostURL + query;
         console.log(endpoint)
-        const response = await fetch(endpoint);
+        const response = await fetch(endpoint,{
+            method:'GET',
+            mode: "cors",
+            credentials:"include"
+          });
         const body = await response.text();
         const result = JSON.parse(body);
         return result;
@@ -54,6 +59,7 @@ export async function Update(path,data){
                     'Content-Type': 'application/json',
     
                 },
+                credentials:"include",
                 body: (data ? JSON.stringify({
                     data,
                 }): null),
@@ -77,6 +83,7 @@ export async function Delete(path,data){
              const endpoint = hostURL;
              const response = await fetch(endpoint.concat(path),{
                 method:'DELETE',
+                credentials:"include",
                 headers: {
                     'Content-Type': 'application/json',
     

@@ -13,6 +13,8 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Button } from 'react-bootstrap';
 import { useApplicationContext } from '../context';
+// import Card from '../components/Cards';
+import ProductCards from '../components/ProductCards';
 const Home = () => {
  const  navigator = useNavigate();
  const searchRef = useRef(''); 
@@ -105,9 +107,18 @@ const Home = () => {
                 <path d="M2 7h.142a3.981 3.981 0 0 0 7.716 0H30a1 1 0 0 0 0-2H9.858a3.981 3.981 0 0 0-7.716 0H2a1 1 0 0 0 0 2zm4-3a2 2 0 1 1-2 2 2 2 0 0 1 2-2zm24 11h-.142a3.981 3.981 0 0 0-7.716 0H2a1 1 0 0 0 0 2h20.142a3.981 3.981 0 0 0 7.716 0H30a1 1 0 0 0 0-2zm-4 3a2 2 0 1 1 2-2 2 2 0 0 1-2 2zm4 7H19.858a3.981 3.981 0 0 0-7.716 0H2a1 1 0 0 0 0 2h10.142a3.981 3.981 0 0 0 7.716 0H30a1 1 0 0 0 0-2zm-14 3a2 2 0 1 1 2-2 2 2 0 0 1-2 2z" fill="currentColor" class="color000000 svgShape">
                 </path></svg>
             </Button>
+           
           </div>
+          
           </div>
            
+          <div style={{display:"flex",margin:"auto",width:"90%",flexDirection:"row",gap:"1rem",flexWrap:"wrap"}}> 
+           
+          <ProductCards /> 
+          <ProductCards /> 
+          <ProductCards /> 
+          <ProductCards /> 
+          <ProductCards /> </div>
       </section>
       <section style={{ display: "flex", justifyContent: "center", padding: '3rem', flexWrap: "wrap", backgroundColor: "lightskyblue" }}>
         <div >

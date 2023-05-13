@@ -8,8 +8,11 @@ import Error from "./pages/Error";
 import DoctorSigin from "./pages/DoctorSigin";
 import {ContextProvider} from './context';
 import {DoctorsWindow} from './pages/DoctorsWindow';
-
-
+import { ViewDoctors } from "./pages/ViewDoctors";
+import { AddProduct } from "./pages/AddProduct";
+import { AdminDashBoard } from "./pages/AdminDashBoard";
+import {ViewProductsAdmin} from './pages/ViewProductsAdmin';
+import { ViewOrdersAdmin } from "./pages/ViewOrdersAdmin";
 function App() {
   return (<div id="Homepage">
   
@@ -27,6 +30,13 @@ function App() {
       //   <Route path="edit" element={<Edit/>}/>
       //   <Route path="appointments" element={<Appointments/>}/>
       // </Route> */}
+      <Route path='/admin'>
+           <Route index element ={<AdminDashBoard/>} />
+           <Route path="addProduct" element={<AddProduct/>}/>
+           <Route path="viewDoctor" element={<ViewDoctors/>}/>
+           <Route path="ViewProducts" element={<ViewProductsAdmin/>}/>
+           <Route path="orders"  element={<ViewOrdersAdmin />} />
+      </Route>
       
 
 

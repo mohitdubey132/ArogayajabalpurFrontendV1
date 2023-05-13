@@ -7,6 +7,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { Fetch } from '../dbFatch';
 import {useApplicationContext} from '../context'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import Cookies from 'js-cookie';
 const Login = () => {
   const navigator = useNavigate();
   const navigateBack = () => {
@@ -43,7 +44,8 @@ const Login = () => {
       console.log(response)
       localStorage.setItem('token', response.token);
       localStorage.setItem('user', JSON.stringify(response.user));
-      setUser(response.user)
+      setUser(response.user);
+      Cookies.set('token',response.token);
       toast.success(`loging successfully ${response.user.name}}`, { position: 'top-right', theme: 'colored' });
       navigator(-1);
     }

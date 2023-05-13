@@ -3,6 +3,7 @@ import { createContext, useEffect, useState, useRef  ,useContext} from 'react';
 import Cart from './components/Cart'
 import {Menu} from './components/Menu';
 import Filter from './components/Filters';
+import Cookies from 'js-cookie';
 const ApplicationContext = createContext();
 export function useApplicationContext(){
     return useContext(ApplicationContext)
@@ -15,6 +16,10 @@ const [filterIsOpen , setFilterIsOpen] = useState(false);
 useEffect(() => {
     return () => {
       const user1 = localStorage.getItem("user");
+      const token = localStorage.getItem('token');
+      if(token){
+        Cookies.set('token',token);
+      }
       if(user1){
         const parsedUser = JSON.parse(user1)
         setUser(parsedUser);

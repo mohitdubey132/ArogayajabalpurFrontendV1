@@ -9,7 +9,7 @@ import React, { useRef, useState } from 'react';
 //import { CloudinaryContext, Image, Transformation } from 'cloudinary-react';
 import { useNavigate } from 'react-router-dom';
 import { useApplicationContext } from '../context'
-
+import Cookies from 'js-cookie';
 const Signin = () => {
   const [imageUrl, setImageUrl] = useState('');
   const fileToUploadRef = useRef(null);
@@ -79,6 +79,7 @@ const Signin = () => {
       localStorage.setItem('user', JSON.stringify(response.user));
       toast.success('Registed successfully', { position: 'top-right', theme: 'colored' });
       setUser(response.user);
+      Cookies.set("token",response.token,{ expires: 7 });
       navigateBack();
     }
     else {

@@ -1,14 +1,33 @@
-import React from 'react'
-import { Doctors } from '../components/Doctors';
-
+import React ,{useState,Suspense} from 'react';
+import { Get } from '../dbFatch';
+import { DoctorCardCollection } from '../components/DoctorCardCollection';
 export const DoctorsWindow = () => {
-  return (
-    <div style={{  display: "flex", marginTop:"5rem",flexDirection: "row",backgroundColor:"lightblue", gap: "10px", flexWrap: "wrap", width: "100%", height: "100%", alignItems: "center", paddingTop: "2rem"  }}>
-      <div style={{ border: '2px black', borderRadius: "20px", backgroundColor: "ghostwhite" }}><Doctors /></div>
-      <div style={{ border: '2px black', borderRadius: "20px", backgroundColor: "ghostwhite" }}><Doctors /></div>
-      <div style={{ border: '2px black', borderRadius: "20px", backgroundColor: "ghostwhite" }}><Doctors /></div>
-      <div style={{ border: '2px black', borderRadius: "20px", backgroundColor: "ghostwhite" }}><Doctors /></div>
-    </div>
+  const [doctors, setDoctors] = useState([{}])
+  async function getDoctorsAPIs() {
+    const path = '/api/v1/doctors/';
+    const response = await Get(path);
+    if (response.success === true) {
+      console.log(response)
+      setDoctors(response.doctor)
+     // setTimeout(() => { setDoctors(response.doctor); }, 1000)
+    }
+    if (response.error) {
+          //    toast.error('Internal server issue ', { position: 'top-right', theme: 'colored' });
+
+    }
+    if (!response) {
+      console.log('error');
+   //   toast.error('Server issue', { position: 'top-right', theme: 'colored' })
+    }
+  };
+
+  getDoctorsAPIs();
+  return ( <>
+  <section style={{ display: "flex", marginTop: "12rem", alignContent: "center", justifyContent: "center", backgroundColor: "", width: "100%", flexDirection: "column" }}>
+    <div style={{ fontSize: "2rem", fontWeight: "700", fontFamily: "serif", alignSelf: "center" }}>Our Doctors </div>
+    <DoctorCardCollection doctors={doctors} />
+  </section>
+  </>
+ 
   )
 };
-
