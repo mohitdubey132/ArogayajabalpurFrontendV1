@@ -94,7 +94,7 @@ const Home = () => {
       <section style={{display:"flex",justifyContent:"center",padding:"3rem",flexDirection:"column"}}>
          <h2> Buy Medicines</h2> <br/>
           <div style={{display:"flex",flexDirection:"row",justifyContent:"center",width:"100%"}} >
-           <input type='text' ref={searchRef} value={searchRef.current.values} style={{width:"70%" ,borderRadius: "50px 0px 0px 50px" }} placeholder='search' />
+           <input type='text' ref={searchRef} value={searchRef.current.values} style={{width:"70%" ,borderRadius: "50px 0px 0px 50px" }} placeholder='search by Name' />
            <button style={{borderRadius: "0px 50px 50px 0px"}}>Search</button>
            <div style={{ paddingLeft: "1.5rem", paddingRight: ".5rem" }}>
             <Button
