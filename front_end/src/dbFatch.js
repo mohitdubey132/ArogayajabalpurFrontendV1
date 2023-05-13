@@ -1,6 +1,6 @@
 
 /**create(POST) API  */
-const hostURL = "http://3.111.219.135/api"
+const hostURL = "http://3.111.219.135/api/"
 export async function Fetch(path, data) {
     try {
         const endpoint =  hostURL;
