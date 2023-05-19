@@ -263,7 +263,7 @@ const DoctorSigin = () => {
                 onChange={formik.handleChange}
                 style={{ width: "100%", padding: "0.5rem", borderRadius: "4px", border: "1px solid #E0E0E0", marginTop: "0.5rem" }}
               />
-              <label htmlFor='opening' style={{ fontWeight: "bold" }}>Opening Time</label>
+              <label htmlFor='opening' style={{ fontWeight: "bold" }}>Clooseing Time</label>
               <input name='availability.clooseing'
                 type='time'
                 placeholder='Opening Time'
