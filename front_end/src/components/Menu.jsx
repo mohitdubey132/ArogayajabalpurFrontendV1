@@ -53,10 +53,19 @@ export const Menu = ({ isOpen }) => {
                 <Link to="/admin/orders">View Orders</Link> 
               </div>
             ) : ('')}
+            {user.role ==='user'?(
+              <div style={{ display: "flex", flexDirection: "column" , justifyContent: "space-between"}}>
+              {/* <Link to='/admin'>Dash Board</Link> */}
+              {/* <Link to='/'>Home</Link> */}
+              <Link to='/user/appointments'>My Appointments</Link>
+              <Link to='/Login'>switch to other account</Link>
+              </div>
+
+            ):('')}
             {/* <button>My orders</button> */}
             
             <Button onClick={LogOutAPIs}  >logout</Button>
-          </section>
+                     </section>
         </Offcanvas.Body>
       </Offcanvas>
     </>

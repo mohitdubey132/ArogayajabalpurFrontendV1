@@ -7,7 +7,7 @@ import { useApplicationContext } from '../../context';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 export const NavigationBar = () => {
     const navigator = useNavigate();
-    const { openCart, user, openMenu } = useApplicationContext();
+    const { openCart, user, openMenu , cartQuantity} = useApplicationContext();
     return (
         <nav style={{ display: 'flex', width: "100dvw", justifyContent: "space-between", overflow: "hidden", paddingRight: "1rem", zIndex: "200", top: "0", position: "fixed", width: "100%" }}>
             <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
@@ -32,8 +32,7 @@ export const NavigationBar = () => {
                             </div>
                         </div>)}
 
-
-                    <div style={{ paddingTop: "1.5rem", paddingRight: "1rem" }}>
+{cartQuantity?(<div style={{ paddingTop: "1.5rem", paddingRight: "1rem" }}>
                         <Button
                             onClick={openCart}
                             style={{ width: "3rem", height: "3rem", position: "relative" }}
@@ -60,12 +59,14 @@ export const NavigationBar = () => {
                                     transform: "translate(25%, 25%)",
                                 }}
                             >
-                                4
+                            {cartQuantity}
 
                             </div>
                         </Button>
                         {/* <Cart/> */}
-                    </div>
+                    </div>)
+                    :null}
+                    
 
                 </div>
             </div>         {/* // <ShoppingCartRoundedIcon/> */}

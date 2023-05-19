@@ -10,7 +10,7 @@ export async function Fetch(path, data) {
                 "Content-Type": "application/json",
 
             },
-            //credentials:"include",
+            credentials:"include",
             body: JSON.stringify(data),
             
         });
@@ -57,7 +57,6 @@ export async function Update(path,data){
                 method:'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-    
                 },
                 credentials:"include",
                 body: (data ? JSON.stringify({
@@ -86,7 +85,6 @@ export async function Delete(path,data){
                 credentials:"include",
                 headers: {
                     'Content-Type': 'application/json',
-    
                 },
                 body: (data ? JSON.stringify({
                     data,

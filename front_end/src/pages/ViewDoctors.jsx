@@ -1,8 +1,10 @@
 import React ,{ Suspense, useState } from 'react'
 import { Get } from '../dbFatch';
 import DoctorsTable  from '../components/DoctorsTable';
+import { useEffect } from 'react';
 export  const ViewDoctors = () => {
   const [doctors, setDoctors] = useState([])
+useEffect(() => {
   async function getDoctorsAPIs() {
     const path = '/api/v1/admin/doctor/';
     const response = await Get(path);
@@ -21,10 +23,22 @@ export  const ViewDoctors = () => {
   };
 
   getDoctorsAPIs();
+}, [])
+function uppdateDoctors(id ,response){
+  setDoctors(currDoctor =>{
+    return currDoctor.filter(doctor=> doctor?._id !== id)
+  })
+  setDoctors(currDoctor =>{
+    return [...currDoctor,response?.doctor]
+  })
+} 
+
   return (
-    <section style={{ display: "flex", marginTop: "12rem", alignContent: "center", justifyContent: "center", backgroundColor: "", width: "100%", flexDirection: "column" }}>
+    <section style={{ display: "flex", marginTop: "12rem", alignContent: "center",
+     justifyContent: "center", backgroundColor: "", width: "100%", 
+     flexDirection: "column" }}>
     <div style={{ fontSize: "2rem", fontWeight: "700", fontFamily: "serif", alignSelf: "center" }}>All Listed Doctors</div>
-    <DoctorsTable doctors={doctors} />
+    <DoctorsTable doctors={doctors} updateDoctors={uppdateDoctors} />
   </section>
   )
 };

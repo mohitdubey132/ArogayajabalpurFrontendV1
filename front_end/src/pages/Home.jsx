@@ -1,6 +1,7 @@
-import React ,{useRef} from 'react';
+import React ,{useRef, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 //import img from '../assets/arogya-jabalpur-high-resolution-logo-color-on-transparent-background.png';
+import {Get} from '../dbFatch';
 import img1 from '../assets/dweb_instant_video_consulation.png';
 import img2 from '../assets/dweb_surgeries.png';
 import img3 from '../assets/images.jpeg';
@@ -15,11 +16,15 @@ import { Button } from 'react-bootstrap';
 import { useApplicationContext } from '../context';
 // import Card from '../components/Cards';
 import ProductCards from '../components/ProductCards';
+import { useEffect } from 'react';
+import { Suspense } from 'react';
+import { ProductCantainer } from '../components/ProductCantainer';
 const Home = () => {
  const  navigator = useNavigate();
  const searchRef = useRef(''); 
  const {openFilter} = useApplicationContext();
-  return (
+
+ return (
     <div style={{ width: "100%", height: "100%", alignItems: "center", paddingTop: "2rem" }}>
       <section className='carousel' style={{ marginTop: "5rem" }}>
         <Carousel showArrows={false}
@@ -30,7 +35,7 @@ const Home = () => {
           showStatus={false}
           infiniteLoop={true}
         >
-          <div style={{ display: "flex", justifyContent: "center", backgroundColor: "white", flexWrap: "wrap", flexDirection: "row" }} className='demo' >
+          {/* <div style={{ display: "flex", justifyContent: "center", backgroundColor: "white", flexWrap: "wrap", flexDirection: "row" }} className='demo' >
             <div>
               <img src={img1} alt='image' height={'350px'} width={'300px'} style={{ objectFit: "cover" }} />
             </div>
@@ -43,7 +48,7 @@ const Home = () => {
               </h3>
               <Button variant="outline-success" onClick={() => { navigator('/doctors') }} >Consult Now</Button>
             </aside>
-          </div>
+          </div> */}
           <div style={{ display: "flex", justifyContent: "center", backgroundColor: "white", flexWrap: "wrap", flexDirection: "row" }}>
             <div>
               <img src={img2} alt='image' height={'350px'} width={'300px'} style={{ objectFit: "cover" }} />
@@ -55,7 +60,7 @@ const Home = () => {
               <h3>
                 confirmed appointments
               </h3>
-              <Button variant="outline-success" onClick={() => { navigator('/') }} >Book Appointments</Button>
+              <Button variant="outline-success" onClick={() => { navigator('/doctors') }} >Book Appointments</Button>
             </aside>
           </div>
           <div style={{ display: "flex", justifyContent: "center", backgroundColor: "white", flexWrap: "wrap", flexDirection: "row" }}>
@@ -113,12 +118,8 @@ const Home = () => {
           </div>
            
           <div style={{display:"flex",margin:"auto",width:"90%",flexDirection:"row",gap:"1rem",flexWrap:"wrap"}}> 
-           
-          <ProductCards /> 
-          <ProductCards /> 
-          <ProductCards /> 
-          <ProductCards /> 
-          <ProductCards /> </div>
+           <ProductCantainer />   
+         </div>
       </section>
       <section style={{ display: "flex", justifyContent: "center", padding: '3rem', flexWrap: "wrap", backgroundColor: "lightskyblue" }}>
         <div >

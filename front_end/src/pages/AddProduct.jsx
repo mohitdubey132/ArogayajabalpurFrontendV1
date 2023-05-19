@@ -6,6 +6,7 @@ import { Fetch } from '../dbFatch';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 export const AddProduct = () => {
   const [imageUrl, setImageUrl] = useState('');
   const fileToUploadRef = useRef(null);
@@ -52,7 +53,8 @@ export const AddProduct = () => {
 
       console.log(values.initialValues);
       productCreationAPI(values);
-    }
+    },
+    // onReset
   });
   const productCreationAPI = async (data) => {
     const path = '/api/v1/products/new';
@@ -64,8 +66,8 @@ export const AddProduct = () => {
       // localStorage.setItem('token', response.token);
       // localStorage.setItem('user', response.doctor._id);
       // localStorage.setItem('role', response.doctor.role);
-      toast.success('Registed successfully', { position: 'top-right', theme: 'colored' });
-      navigateBack();
+      toast.success('product created successfully', { position: 'top-right', theme: 'colored' });
+      navigateBack('/admin/ViewProducts');
     }
     else {
       console.log('error');
@@ -117,7 +119,9 @@ export const AddProduct = () => {
   return (
     <>
       <section style={{ width: "100%", height: "100%", marginTop: "6rem" }}>
+     
         <form onSubmit={formik.handleSubmit} style={{ display: "flex", margin: "2rem", backgroundColor: "white", flexDirection: "column", alignItems: 'baseline', justifyContent: "center", width: "90%", padding: "2rem", border: "1px solid #E0E0E0", borderRadius: "4px" }}>
+        <div style={{ fontSize: "2rem", fontWeight: "700", fontFamily: "serif", alignSelf: "center" }}>Add Product</div>
           <div style={{ display: "flex" }}>
           </div>
           <div style={{ width: "100%", display: "flex", justifyContent: "space-between", flexDirection: "row", flexWrap: 'wrap' }}>
@@ -251,12 +255,14 @@ export const AddProduct = () => {
                 <div style={{ color: "red" }}>{formik.errors.availability.clooseing}</div>
               ) : null} */}
 
-
+           <div style={{display:"flex",justifyContent:"space-between",width:"50%"}}>
           <button type='submit' style={{ backgroundColor: "#007BFF", color: "#FFF", padding: "0.5rem 1rem", borderRadius: "4px", border: "none", marginTop: "1rem", cursor: "pointer", }}>
             Submit
           </button>
+          {/* <Button variant='outline-denger' type='reset' style={{ backgroundColor: "red", color: "#FFF", padding: "0.5rem 1rem", borderRadius: "4px", border: "none", marginTop: "1rem", cursor: "pointer", }} >Reset</Button> */}
+          </div>
         </form>
-      </section >
+       < ToastContainer/> </section >
     </>
   )
 }

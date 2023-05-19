@@ -1,4 +1,4 @@
-import React , {Suspense } from 'react'
+import React , {Suspense } from 'react';
 import HashLoader from "react-spinners/HashLoader";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -25,7 +25,8 @@ export default function ProductTable({products}) {
             <TableCell style={{color:"lightblue"}}   align='right'>Options</TableCell>
           </TableRow>
         </TableHead>
-        <Suspense fallback={<HashLoader color="#d65c36" />}>
+        <Suspense fallback={<HashLoader color="#d65c36" style={{top:'50%'}} />}>
+   
         <TableBody>
           {products.map((row) => (
             <TableRow
@@ -33,12 +34,16 @@ export default function ProductTable({products}) {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.name}
+               <div style={{display:"flex",flexDirection:"column"}}>
+               <img src={row.images.url} height={"200px"} width={"200px"}/> 
+                <h2>{row.name}</h2></div> 
               </TableCell>
               <TableCell align="right">{row.Product_details.Manufacturer}</TableCell>
               <TableCell align="right">{row.price}</TableCell>
               <TableCell align="right">{row.Stock}</TableCell>
               <TableCell align="right">{row.createdAt}</TableCell>
+              {/* <TableCell align="right"><img src={row.images.url} height={"200px"}/></TableCell> */}
+ 
               <TableCell align="right">view details</TableCell>
             </TableRow>
           ))}
