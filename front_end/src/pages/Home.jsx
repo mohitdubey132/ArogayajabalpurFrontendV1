@@ -147,43 +147,7 @@ const Home = () => {
       <div style={{ fontSize: "2rem", fontWeight: "800", textAlign: "center" }}>OUR DEVELPOERS</div>
       <div id='Develpor' style={{ display: "flex", gap: "2dvw", justifyContent: "center", flexDirection: "row", flexWrap: "wrap" }}>
 
-        {/* <div style={{ boxShadow: "0px 0px 5px rgba(0, 0, 0, 1)", justifyContent: "center", alignItems: "center" }}>
-          <div className='DevCard' style={{}}>
-            <img src={dev2img} height={'150px'} width={'150px'} style={{ borderRadius: "50%" }} />
-            <h3><strong>Mr.Utkarsh Rajak</strong></h3>
-            <h5>MCA Student of JEC College</h5>
-            <h5>worked as a full stack develoer</h5>
-            <h4><strong>contect me on </strong></h4>
-            <>contect no : 9407267994</>
-            <><a href='mailto: rajakutkrsh123@gmail.com' >rajakutkrsh123@gmail.com</a></>
-            <h4>Social media account</h4>
-            <a href="https://twitter.com/sigma_utkarsh9" alt="https://twitter.com">Twitter</a>
-            <a href="https://www.linkedin.com/in/utkarsh-rajak-987b03249" alt="https://www.linkedin.com">Linkdin</a>
-            <a href="https://github.com/mohitdubey132" alt="https://github.com">Github</a>
-
-          </div>
-        </div>
-
-        <div style={{ boxShadow: "0px 0px 5px rgba(0, 0, 0, 1)", justifyContent: "center" }}>
-
-          <div className='DevCard' >
-            <img src={dev1img} height={'150px'} width={'150px'} style={{ borderRadius: "50%" }} />
-            <h3><strong>Mr.Mohit Dubey</strong></h3>
-            <h5>MCA Student of JEC College</h5>
-            <h5>worked as a full stack develoer</h5>
-            <h4><strong>contect me on </strong></h4>
-            <>contect no : 626383993</>
-            <><a href='mailto: mohitdubey1322001@gmail.com' >mohitdubey1322001@gmail.com</a></>
-            <h4>Social media account</h4>
-            <a href="https://twitter.com/MohitDu25017405" alt="https://twitter.com">Twitter</a>
-            <a href="https://www.linkedin.com/in/mohit-dubey-0903b6226" alt="https://www.linkedin.com">Linkdin</a>
-            <a href="https://github.com/mohitdubey132" alt="https://github.com">Github</a>
-
-          </div>
-        </div>
-        {/* <DeveloerCard /> */}
-
-      </div> */}
+    
 
     </div>
   )
