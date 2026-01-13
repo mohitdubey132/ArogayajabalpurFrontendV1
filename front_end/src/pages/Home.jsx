@@ -147,7 +147,7 @@ const Home = () => {
       <div style={{ fontSize: "2rem", fontWeight: "800", textAlign: "center" }}>OUR DEVELPOERS</div>
       <div id='Develpor' style={{ display: "flex", gap: "2dvw", justifyContent: "center", flexDirection: "row", flexWrap: "wrap" }}>
 
-        <div style={{ boxShadow: "0px 0px 5px rgba(0, 0, 0, 1)", justifyContent: "center", alignItems: "center" }}>
+        {/* <div style={{ boxShadow: "0px 0px 5px rgba(0, 0, 0, 1)", justifyContent: "center", alignItems: "center" }}>
           <div className='DevCard' style={{}}>
             <img src={dev2img} height={'150px'} width={'150px'} style={{ borderRadius: "50%" }} />
             <h3><strong>Mr.Utkarsh Rajak</strong></h3>
@@ -183,7 +183,7 @@ const Home = () => {
         </div>
         {/* <DeveloerCard /> */}
 
-      </div>
+      </div> */}
 
     </div>
   )
